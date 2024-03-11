@@ -1,0 +1,23 @@
+services:
+  ooklaserver:
+    image: ookla/ooklaserver:latest
+    container_name: ooklaserver
+    restart: unless-stopped
+    volumes:
+      - ${PWD}:/opt/ooklaserver/data
+      - ${PWD}:/opt/ooklaserver/certs
+    environment:
+      # All environment variables are optional
+      # OoklaServer user and group
+      OOKLASERVER_USER: ooklaserver
+      OOKLASERVER_GROUP: ooklaserver
+
+      # Properties file configuration
+      # Default is Ookla provided default
+      PROPERTIES_FILE: OoklaServer.properties
+
+    network_mode: host
+
+volumes:
+  ooklaserver_config:
+  ooklaserver_certs:
