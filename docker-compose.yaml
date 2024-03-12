@@ -15,7 +15,9 @@ services:
       # Properties file configuration
       # Default is Ookla provided default
       PROPERTIES_FILE: OoklaServer.properties
-
+    ports:
+      - "8080:8080"
+      - "5060:5060"
     network_mode: host
 
 volumes:
